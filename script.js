@@ -3,6 +3,13 @@ window.addEventListener('scroll', () => {
     document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
 });
 
+// Menu toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+});
+
 // Slideshow control
 let slideIndex = 0;
 const slides = document.querySelectorAll('.slide');
