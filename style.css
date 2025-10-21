@@ -11,7 +11,7 @@
 }
 
 body {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Comic Neue', cursive;
   background-color: var(--black);
   color: var(--crimson);
   line-height: 1.6;
@@ -19,11 +19,13 @@ body {
 
 h1, h2, h3, p, li, a {
   color: var(--crimson);
-  text-shadow: 1px 1px 2px var(--white);
+  text-shadow: 2px 2px var(--white);
 }
 
-a {
-  text-decoration: none;
+.comic-title {
+  font-family: 'Bangers', cursive;
+  font-size: 4rem;
+  letter-spacing: 2px;
 }
 
 header {
@@ -47,48 +49,27 @@ header .overlay {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 1rem;
-}
-
-header h1 {
-  font-size: 3rem;
 }
 
 .section {
   padding: 2rem;
 }
 
-.ethos {
-  background-color: var(--black);
+.panel {
+  border: 4px solid var(--white);
+  margin: 2rem;
   padding: 2rem;
-  border-top: 2px solid var(--crimson);
-  border-bottom: 2px solid var(--crimson);
+  box-shadow: 0 0 20px var(--white);
+  transition: transform 0.3s ease;
 }
 
-.ethos h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-  font-size: 2rem;
-}
-
-.ethos ul {
-  list-style: none;
-}
-
-.ethos li {
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-}
-
-.roster, .videos, .schedule {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+.panel:hover {
+  transform: scale(1.02) rotate(-1deg);
 }
 
 .card {
   background-color: var(--black);
-  border: 1px solid var(--crimson);
+  border: 2px dashed var(--crimson);
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 0 10px var(--white);
@@ -96,12 +77,29 @@ header h1 {
 }
 
 .card:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
-.card p {
-  margin-top: 0.5rem;
-  font-size: 1rem;
+.speech-bubble {
+  background: var(--white);
+  color: var(--crimson);
+  padding: 1rem;
+  border-radius: 10px;
+  position: relative;
+  font-family: 'Comic Neue', cursive;
+  box-shadow: 2px 2px 0 var(--crimson);
+  margin-top: 1rem;
+  width: fit-content;
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
 }
 
 footer {
