@@ -1,11 +1,10 @@
-
 console.log('JS loaded'); // Confirm script is running
 
 // Pop-up control
 const popupOverlay = document.getElementById('popup-overlay');
 const popupOk = document.getElementById('popup-ok');
 const mainContent = document.querySelector('.main-content');
-const logoContainer = document.querySelector('.hero-logo-container');
+const logoFade = document.querySelector('.logo-fade');
 const body = document.body;
 
 popupOk.addEventListener('click', () => {
@@ -14,7 +13,7 @@ popupOk.addEventListener('click', () => {
     mainContent.style.display = 'block';
     body.style.overflow = 'auto'; // Enable scrolling
     setTimeout(() => {
-        logoContainer.classList.add('visible');
+        logoFade.classList.add('visible');
     }, 100); // Slight delay for fade-in
 });
 
