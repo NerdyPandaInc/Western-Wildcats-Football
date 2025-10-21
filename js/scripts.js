@@ -1,4 +1,3 @@
-// Recommend adding defer attribute to script tag in HTML: <script src="js/scripts.js" defer></script>
 console.log('JS loaded at', new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })); // Confirm script is running with timestamp
 
 // Pop-up control with enhanced error handling
@@ -63,7 +62,6 @@ const slideshow = document.querySelector('.slideshow');
 const slides = document.querySelectorAll('.slide');
 
 if (slideshow && slides.length > 0) {
-    // Check if CSS transition is supported
     const hasTransition = window.getComputedStyle(slideshow).transition !== 'none';
     function showSlides() {
         if (!hasTransition) {
@@ -74,31 +72,9 @@ if (slideshow && slides.length > 0) {
         console.log(`Home slide changed to index: ${slideIndex}`);
         setTimeout(showSlides, 4000);
     }
-    // Start slideshow after a short delay to ensure DOM is ready
-    setTimeout(showSlides, 500);
+    setTimeout(showSlides, 500); // Delay to ensure DOM is ready
 } else {
     console.warn('Home slideshow elements not found or empty:', { slideshow, slidesLength: slides.length });
-}
-
-// Join Slideshow control
-let joinSlideIndex = 0;
-const joinSlideshow = document.querySelector('.join-slideshow');
-const joinSlides = document.querySelectorAll('.join-slide');
-
-if (joinSlideshow && joinSlides.length > 0) {
-    const hasJoinTransition = window.getComputedStyle(joinSlideshow).transition !== 'none';
-    function showJoinSlides() {
-        if (!hasJoinTransition) {
-            console.warn('CSS transition not supported for join slideshow');
-        }
-        joinSlideIndex = (joinSlideIndex + 1) % joinSlides.length;
-        joinSlideshow.style.transform = `translateX(-${joinSlideIndex * 100}%)`;
-        console.log(`Join slide changed to index: ${joinSlideIndex}`);
-        setTimeout(showJoinSlides, 4000);
-    }
-    setTimeout(showJoinSlides, 500); // Delay to ensure visibility
-} else {
-    console.warn('Join slideshow elements not found or empty:', { joinSlideshow, joinSlidesLength: joinSlides.length });
 }
 
 // Form submission (placeholder)
