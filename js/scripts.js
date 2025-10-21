@@ -1,6 +1,7 @@
+// Recommend adding defer attribute to script tag in HTML: <script src="js/scripts.js" defer></script>
 console.log('JS loaded at', new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })); // Confirm script is running with timestamp
 
-// Pop-up control with error handling
+// Pop-up control with enhanced error handling
 const popupOverlay = document.getElementById('popup-overlay');
 const popupOk = document.getElementById('popup-ok');
 const mainContent = document.querySelector('.main-content');
@@ -9,16 +10,22 @@ const body = document.body;
 
 if (popupOk && popupOverlay && mainContent && logoFade && body) {
     popupOk.addEventListener('click', () => {
-        console.log('Button clicked'); // Confirm click detected
+        console.log('Button clicked at', new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }));
         popupOverlay.style.display = 'none';
         mainContent.style.display = 'block';
         body.style.overflow = 'auto'; // Enable scrolling
         setTimeout(() => {
-            logoFade.classList.add('visible');
+            if (logoFade) logoFade.classList.add('visible');
         }, 100); // Slight delay for fade-in
     });
 } else {
-    console.error('One or more pop-up elements not found');
+    console.error('Pop-up elements missing:', {
+        popupOverlay,
+        popupOk,
+        mainContent,
+        logoFade,
+        body
+    });
 }
 
 // Menu toggle and auto-close on selection
@@ -28,16 +35,17 @@ const navMenu = document.querySelector('.nav-menu');
 if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
+        console.log('Menu toggled');
     });
 
-    // Close menu when a link is clicked
     navMenu.addEventListener('click', (e) => {
         if (e.target.tagName === 'A') {
             navMenu.classList.remove('active');
+            console.log('Menu closed on link click:', e.target.textContent);
         }
     });
 } else {
-    console.error('Menu elements not found');
+    console.error('Menu elements missing:', { menuToggle, navMenu });
 }
 
 // Scroll effect for nav
@@ -45,6 +53,7 @@ window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
     if (nav) {
         nav.classList.toggle('scrolled', window.scrollY > 50);
+        console.log('Scroll detected, nav scrolled:', window.scrollY > 50);
     }
 });
 
@@ -54,14 +63,21 @@ const slideshow = document.querySelector('.slideshow');
 const slides = document.querySelectorAll('.slide');
 
 if (slideshow && slides.length > 0) {
+    // Check if CSS transition is supported
+    const hasTransition = window.getComputedStyle(slideshow).transition !== 'none';
     function showSlides() {
+        if (!hasTransition) {
+            console.warn('CSS transition not supported, slideshow may not animate');
+        }
         slideIndex = (slideIndex + 1) % slides.length;
         slideshow.style.transform = `translateX(-${slideIndex * 100}%)`;
+        console.log(`Home slide changed to index: ${slideIndex}`);
         setTimeout(showSlides, 4000);
     }
-    showSlides(); // Start slideshow
+    // Start slideshow after a short delay to ensure DOM is ready
+    setTimeout(showSlides, 500);
 } else {
-    console.warn('Home slideshow elements not found or empty');
+    console.warn('Home slideshow elements not found or empty:', { slideshow, slidesLength: slides.length });
 }
 
 // Join Slideshow control
@@ -70,14 +86,19 @@ const joinSlideshow = document.querySelector('.join-slideshow');
 const joinSlides = document.querySelectorAll('.join-slide');
 
 if (joinSlideshow && joinSlides.length > 0) {
+    const hasJoinTransition = window.getComputedStyle(joinSlideshow).transition !== 'none';
     function showJoinSlides() {
+        if (!hasJoinTransition) {
+            console.warn('CSS transition not supported for join slideshow');
+        }
         joinSlideIndex = (joinSlideIndex + 1) % joinSlides.length;
         joinSlideshow.style.transform = `translateX(-${joinSlideIndex * 100}%)`;
+        console.log(`Join slide changed to index: ${joinSlideIndex}`);
         setTimeout(showJoinSlides, 4000);
     }
-    showJoinSlides(); // Start join slideshow
+    setTimeout(showJoinSlides, 500); // Delay to ensure visibility
 } else {
-    console.warn('Join slideshow elements not found or empty');
+    console.warn('Join slideshow elements not found or empty:', { joinSlideshow, joinSlidesLength: joinSlides.length });
 }
 
 // Form submission (placeholder)
@@ -85,6 +106,7 @@ const form = document.querySelector('form');
 if (form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
+        console.log('Form submitted at', new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }));
         alert('Thanks for reaching out! We\'ll get back to you soon.');
     });
 } else {
