@@ -72,36 +72,57 @@ nav.scrolled { background: var(--accent-maroon); }
     height: 100%;
     background: rgba(0,0,0,0.8);
     z-index: 2000;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
+.popup-overlay.active { display: flex; }
 .popup-content {
     text-align: center;
     background: var(--accent-maroon);
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 10px var(--silver);
+    box-shadow: 0 0 15px var(--silver);
 }
 .popup-image {
-    max-width: 80%;
+    max-width: 200px;
     height: auto;
     margin-bottom: 20px;
 }
+.popup-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
 #popup-ok {
-    background: var(--accent-maroon);
-    color: var(--silver);
-    padding: 10px 20px;
-    border: 2px solid var(--silver);
+    background: var(--silver);
+    color: var(--accent-maroon);
+    padding: 12px 30px;
+    border: none;
     cursor: pointer;
     transition: all 0.3s;
 }
-#popup-ok:hover { background: var(--silver); color: var(--accent-maroon); }
+#popup-ok:hover { background: var(--text-light); }
 
 .hero {
     position: relative;
     height: 100vh;
     overflow: hidden;
+}
+.hero-logo-container {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.hero-logo-container.visible {
+    opacity: 1;
+}
+.logo {
+    max-width: 400px;
+    height: auto;
 }
 .slideshow {
     position: absolute;
@@ -123,22 +144,11 @@ nav.scrolled { background: var(--accent-maroon); }
 }
 .hero-content {
     text-align: center;
-    position: relative;
-    top: 20%;
-    width: 100%;
-}
-.logo {
-    font-size: 4rem;
-    font-weight: bold;
-    color: var(--silver);
-    text-shadow: 2px 2px 4px var(--accent-maroon);
-    margin-bottom: 20px;
-    opacity: 0;
-    animation: fadeIn 1s ease-in forwards 0.5s; /* Delay for fade-in */
-}
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
 }
 .hero h1 { color: var(--text-light); font-size: 2.5rem; margin-bottom: 20px; }
 .cta-btn {
@@ -189,6 +199,11 @@ table td {
     transition: transform 0.3s;
 }
 .player-card:hover { transform: scale(1.05); }
+.player-card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
 .contact { text-align: center; }
 .contact form { max-width: 500px; margin: 0 auto; }
 .contact input, .contact textarea {
@@ -208,7 +223,8 @@ table td {
 }
 
 @media (max-width: 768px) {
-    .logo { font-size: 2.5rem; }
+    .logo { max-width: 250px; }
     .nav-menu { width: 150px; }
-    .popup-image { max-width: 90%; }
+    .popup-content { padding: 20px; }
+    .popup-image { max-width: 150px; }
 }
