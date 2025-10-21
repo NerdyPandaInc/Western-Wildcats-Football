@@ -1,124 +1,41 @@
 :root {
-  --maroon: #5B1A18;
-  --grey: #C0C0C0;
-  --charcoal: #1A1A1A;
-  --white: #FFFFFF;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  --maroon: #6E0B14;
+  --grey: #B0B0B0;
+  --charcoal: #121212;
+  --sand: #F5F5DC;
 }
 
 body {
   font-family: 'Comic Neue', cursive;
   background-color: var(--charcoal);
-  color: var(--maroon);
-  line-height: 1.6;
+  color: var(--sand);
 }
 
-h1, h2, h3, p, li, a {
+h1, h2, h3 {
+  font-family: 'Bangers', cursive;
   color: var(--maroon);
   text-shadow: 2px 2px var(--grey);
 }
 
-.comic-title {
-  font-family: 'Bangers', cursive;
-  font-size: 4rem;
-  letter-spacing: 2px;
-}
-
-header {
-  position: relative;
-  height: 80vh;
-  overflow: hidden;
-}
-
-header video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-header .overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.section {
-  padding: 2rem;
+p, li, a {
+  color: var(--sand);
+  text-shadow: 1px 1px var(--grey);
 }
 
 .panel {
-  border: 4px solid var(--grey);
-  margin: 2rem;
-  padding: 2rem;
-  box-shadow: 0 0 20px var(--grey);
-  transition: transform 0.3s ease;
   background-color: var(--charcoal);
-}
-
-.panel:hover {
-  transform: scale(1.02) rotate(-1deg);
+  border: 4px solid var(--maroon);
+  box-shadow: 0 0 15px var(--grey);
 }
 
 .card {
   background-color: var(--charcoal);
   border: 2px dashed var(--maroon);
-  padding: 1rem;
-  border-radius: 8px;
   box-shadow: 0 0 10px var(--grey);
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: scale(1.05);
 }
 
 .speech-bubble {
-  background: var(--grey);
+  background-color: var(--sand);
   color: var(--maroon);
-  padding: 1rem;
-  border-radius: 10px;
-  position: relative;
-  font-family: 'Comic Neue', cursive;
   box-shadow: 2px 2px 0 var(--maroon);
-  margin-top: 1rem;
-  width: fit-content;
-}
-
-.speech-bubble::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 20px;
-  border-width: 10px;
-  border-style: solid;
-  border-color: var(--grey) transparent transparent transparent;
-}
-
-.videos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-footer {
-  background-color: var(--charcoal);
-  color: var(--maroon);
-  text-align: center;
-  padding: 1rem;
-  border-top: 2px solid var(--maroon);
-}
-
-footer a {
-  margin: 0 0.5rem;
-  font-weight: bold;
 }
