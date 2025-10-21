@@ -10,6 +10,14 @@ menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
+// Pop-up control
+const popupOverlay = document.getElementById('popup-overlay');
+const popupOk = document.getElementById('popup-ok');
+popupOk.addEventListener('click', () => {
+    popupOverlay.style.display = 'none';
+    document.querySelector('.logo').style.animation = 'fadeIn 1s ease-in forwards'; // Trigger logo fade-in
+});
+
 // Slideshow control
 let slideIndex = 0;
 const slides = document.querySelectorAll('.slide');
@@ -26,4 +34,9 @@ showSlides();
 document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
     alert('Thanks for reaching out! We\'ll get back to you soon.');
+});
+
+// Ensure pop-up shows on load
+window.addEventListener('load', () => {
+    popupOverlay.style.display = 'flex';
 });
