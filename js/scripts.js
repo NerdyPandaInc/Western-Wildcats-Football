@@ -17,11 +17,19 @@ popupOk.addEventListener('click', () => {
     }, 100); // Slight delay for fade-in
 });
 
-// Menu toggle
+// Menu toggle and auto-close on selection
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
+
 menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
+});
+
+// Close menu when a link is clicked
+navMenu.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+        navMenu.classList.remove('active');
+    }
 });
 
 // Scroll effect for nav
