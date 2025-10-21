@@ -1,21 +1,17 @@
-// Show pop-up on load
-window.addEventListener('load', () => {
-    document.getElementById('popup-overlay').classList.add('active');
-});
-
 // Pop-up control
+const popupOverlay = document.getElementById('popup-overlay');
 const popupOk = document.getElementById('popup-ok');
-popupOk.addEventListener('click', () => {
-    document.getElementById('popup-overlay').classList.remove('active');
-    // Fade in logo after pop-up closes
-    setTimeout(() => {
-        document.querySelector('.hero-logo-container').classList.add('visible');
-    }, 300); // Small delay for smooth transition
-});
+const mainContent = document.querySelector('.main-content');
+const logoContainer = document.querySelector('.hero-logo-container');
+const body = document.body;
 
-// Scroll effect for nav
-window.addEventListener('scroll', () => {
-    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
+popupOk.addEventListener('click', () => {
+    popupOverlay.style.display = 'none';
+    mainContent.style.display = 'block';
+    body.style.overflow = 'auto'; // Enable scrolling
+    setTimeout(() => {
+        logoContainer.classList.add('visible');
+    }, 100); // Slight delay for fade-in
 });
 
 // Menu toggle
@@ -25,15 +21,19 @@ menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
+// Scroll effect for nav
+window.addEventListener('scroll', () => {
+    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
+});
+
 // Slideshow control
 let slideIndex = 0;
+const slideshow = document.querySelector('.slideshow');
 const slides = document.querySelectorAll('.slide');
 function showSlides() {
-    slides.forEach((slide, index) => {
-        slide.style.transform = `translateX(-${slideIndex * 100}%)`;
-    });
     slideIndex = (slideIndex + 1) % slides.length;
-    setTimeout(showSlides, 4000); // Change slide every 4 seconds
+    slideshow.style.transform = `translateX(-${slideIndex * 100}%)`;
+    setTimeout(showSlides, 4000);
 }
 showSlides();
 
