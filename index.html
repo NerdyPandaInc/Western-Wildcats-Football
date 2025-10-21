@@ -1,1 +1,59 @@
-Test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildcats FC - Interactive Football Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Lightweight library for sortable table (soccer.js) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wayou/soccer.js@master/soccer.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/wayou/soccer.js@master/soccer.min.js"></script>
+    <!-- For draggable: Fabric.js (canvas-based, great for field interactions) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="slider">
+            <!-- Simple JS slider for match highlights -->
+            <div class="slide active" style="background-image: url('assets/match1.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/match2.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/match3.jpg');"></div>
+            <nav class="slider-nav">
+                <button class="prev">‹</button>
+                <button class="next">›</button>
+            </nav>
+        </div>
+        <div class="hero-text">
+            <h1>Welcome to Wildcats FC</h1>
+            <p>Your interactive home for scores, lineups, and glory!</p>
+        </div>
+    </header>
+
+    <section class="team">
+        <h2>Our Squad</h2>
+        <ul>
+            <li>QB: Johnny Blaze - The Rocket Arm</li>
+            <li>RB: Thunder Smith - Speed Demon</li>
+            <!-- Add more from your lyrics theme -->
+        </ul>
+    </section>
+
+    <section class="league-table">
+        <h2>League Standings</h2>
+        <!-- Interactive table: Sort by clicks, expandable for stats -->
+        <div id="soccer-table" data-teams='[
+            {"name": "Wildcats", "points": 45, "wins": 14, "draws": 3, "losses": 2},
+            {"name": "Rivals", "points": 40, "wins": 13, "draws": 1, "losses": 5},
+            {"name": "Underdogs", "points": 30, "wins": 9, "draws": 3, "losses": 7}
+        ]'></div>
+    </section>
+
+    <section class="field">
+        <h2>Build Your Lineup</h2>
+        <canvas id="football-field" width="800" height="500"></canvas>
+        <p>Drag players around the field!</p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
