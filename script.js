@@ -1,3 +1,18 @@
+// Show pop-up on load
+window.addEventListener('load', () => {
+    document.getElementById('popup-overlay').classList.add('active');
+});
+
+// Pop-up control
+const popupOk = document.getElementById('popup-ok');
+popupOk.addEventListener('click', () => {
+    document.getElementById('popup-overlay').classList.remove('active');
+    // Fade in logo after pop-up closes
+    setTimeout(() => {
+        document.querySelector('.hero-logo-container').classList.add('visible');
+    }, 300); // Small delay for smooth transition
+});
+
 // Scroll effect for nav
 window.addEventListener('scroll', () => {
     document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
@@ -8,14 +23,6 @@ const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
 menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
-});
-
-// Pop-up control
-const popupOverlay = document.getElementById('popup-overlay');
-const popupOk = document.getElementById('popup-ok');
-popupOk.addEventListener('click', () => {
-    popupOverlay.style.display = 'none';
-    document.querySelector('.logo').style.animation = 'fadeIn 1s ease-in forwards'; // Trigger logo fade-in
 });
 
 // Slideshow control
@@ -30,13 +37,8 @@ function showSlides() {
 }
 showSlides();
 
-// Form submission
+// Form submission (placeholder)
 document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
     alert('Thanks for reaching out! We\'ll get back to you soon.');
-});
-
-// Ensure pop-up shows on load
-window.addEventListener('load', () => {
-    popupOverlay.style.display = 'flex';
 });
