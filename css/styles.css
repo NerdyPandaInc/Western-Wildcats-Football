@@ -4,7 +4,7 @@
     --silver: #C0C0C0;
     --text-light: #FFFFFF;
     --text-dark: #800000;
-    --spacing-base: 1rem;
+    --spacing-base: 1rem; /* Base spacing unit for consistency */
 }
 
 * {
@@ -19,11 +19,18 @@ body {
     color: var(--text-light);
     line-height: 1.6;
     min-height: 100vh;
-    overflow: hidden;
+    overflow: hidden; /* Prevent scrolling while pop-up is active */
 }
 
-a { text-decoration: none; color: var(--silver); }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-base); }
+a {
+    text-decoration: none;
+    color: var(--silver);
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-base);
+}
 
 #popup-overlay {
     position: fixed;
@@ -31,7 +38,7 @@ a { text-decoration: none; color: var(--silver); }
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.95);
+    background: rgba(0, 0, 0, 0.95);
     z-index: 2000;
     display: flex;
     justify-content: center;
@@ -43,6 +50,7 @@ a { text-decoration: none; color: var(--silver); }
     padding: calc(var(--spacing-base) * 2);
     border-radius: 1rem;
     box-shadow: 0 0 1.25rem var(--silver);
+    max-width: 90%; /* Ensure it fits on smaller screens */
 }
 .popup-image {
     max-width: 15rem;
@@ -63,9 +71,13 @@ a { text-decoration: none; color: var(--silver); }
     font-size: 1.2rem;
     transition: background 0.3s;
 }
-#popup-ok:hover { background: var(--text-light); }
+#popup-ok:hover {
+    background: var(--text-light);
+}
 
-.main-content { display: none; }
+.main-content {
+    display: none;
+}
 
 nav {
     position: fixed;
@@ -73,21 +85,25 @@ nav {
     width: 100%;
     background: transparent; /* Transparent initially */
     z-index: 1000;
-    transition: background 0.3s;
+    transition: background 0.3s ease;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 0.5rem 1rem;
 }
-nav.scrolled { background: rgba(0,0,0,0.9); } /* Opaque on scroll */
+nav.scrolled {
+    background: rgba(0, 0, 0, 0.9); /* Opaque on scroll */
+}
 .menu-toggle {
     font-size: 1.5rem;
     color: var(--silver);
     cursor: pointer;
     padding: 0.5rem 1rem;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
-.menu-toggle:hover { color: var(--text-light); }
+.menu-toggle:hover {
+    color: var(--text-light);
+}
 .nav-menu {
     list-style: none;
     display: none;
@@ -95,20 +111,27 @@ nav.scrolled { background: rgba(0,0,0,0.9); } /* Opaque on scroll */
     top: 100%;
     left: 0;
     width: 12.5rem;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0, 0, 0, 0.9);
     flex-direction: column;
     padding: 0.625rem 0;
+    border-radius: 0 0 0.5rem 0.5rem; /* Slight rounding for aesthetics */
 }
-.nav-menu.active { display: flex; }
-.nav-menu li { margin: 0.625rem 0; }
+.nav-menu.active {
+    display: flex;
+}
+.nav-menu li {
+    margin: 0.625rem 0;
+}
 .nav-menu a {
     color: var(--silver);
     font-weight: bold;
     padding: 0.625rem 1.25rem;
     display: block;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
-.nav-menu a:hover { color: var(--text-light); }
+.nav-menu a:hover {
+    color: var(--text-light);
+}
 
 .hero {
     position: relative;
@@ -147,17 +170,28 @@ nav.scrolled { background: rgba(0,0,0,0.9); } /* Opaque on scroll */
     z-index: 1;
     width: 90%;
 }
-.hero h1 { color: var(--text-light); font-size: 2.5rem; margin-bottom: 1rem; }
+.hero h1 {
+    color: var(--text-light);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
 .cta-btn {
     background: var(--accent-maroon);
     color: var(--silver);
     padding: 0.75rem 1.875rem;
     border: 0.125rem solid var(--silver);
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
-.cta-btn:hover { background: var(--silver); color: var(--accent-maroon); }
+.cta-btn:hover {
+    background: var(--silver);
+    color: var(--accent-maroon);
+}
 
-section { padding: 4rem 0; }
+section {
+    padding: 4rem 0;
+}
 h2 {
     text-align: center;
     font-size: 2.5rem;
@@ -165,7 +199,9 @@ h2 {
     margin-bottom: 2rem;
     text-shadow: 0.0625rem 0.0625rem 0.125rem var(--bg-color);
 }
-.about { background: rgba(128,0,0,0.1); }
+.about {
+    background: rgba(128, 0, 0, 0.1);
+}
 .about-logo {
     text-align: center;
     margin-bottom: 2rem;
@@ -176,14 +212,18 @@ h2 {
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
 }
-.logo-fade.visible { opacity: 1; }
+.logo-fade.visible {
+    opacity: 1;
+}
 .about p {
     font-size: 1.2rem;
     text-align: center;
     max-width: 80%;
     margin: 0 auto;
 }
-.schedule { background: var(--bg-color); }
+.schedule {
+    background: var(--bg-color);
+}
 table {
     width: 100%;
     border-collapse: collapse;
@@ -198,29 +238,82 @@ table td {
     padding: 0.625rem;
     text-align: center;
 }
-.roster { background: rgba(192,192,192,0.1); color: var(--text-dark); }
-.roster-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 1.5rem;
-    padding: 0 1rem;
+.roster {
+    background: rgba(192, 192, 192, 0.1);
+    color: var(--text-dark);
+}
+.roster .container {
+    text-align: center;
+    padding: var(--spacing-base);
+}
+.roster h2 {
+    font-size: 2.5rem;
+    color: var(--silver);
+    margin-bottom: 2rem;
+    text-shadow: 0.0625rem 0.0625rem 0.125rem var(--bg-color);
+}
+.join-slideshow {
+    position: relative;
+    height: 20rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+.join-slide {
+    min-width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.join-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.join-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.join-buttons .cta-btn {
+    background: var(--accent-maroon);
+    color: var(--silver);
+    padding: 0.75rem 1.875rem;
+    border: 0.125rem solid var(--silver);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+.join-buttons .cta-btn:hover {
+    background: var(--silver);
+    color: var(--accent-maroon);
 }
 .player-card {
     background: var(--accent-maroon);
     padding: 1.25rem;
     border-radius: 0.625rem;
     text-align: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
 }
-.player-card:hover { transform: scale(1.05); }
+.player-card:hover {
+    transform: scale(1.05);
+}
 .player-card img {
     border-radius: 50%;
     width: 6.25rem;
     height: 6.25rem;
 }
-.contact { text-align: center; }
-.contact form { max-width: 31.25rem; margin: 0 auto; }
-.contact input, .contact textarea {
+.contact {
+    text-align: center;
+}
+.contact form {
+    max-width: 31.25rem;
+    margin: 0 auto;
+}
+.contact input,
+.contact textarea {
     width: 100%;
     padding: 0.625rem;
     margin: 0.625rem 0;
@@ -246,7 +339,7 @@ table td {
     .menu-toggle { font-size: 1.2rem; padding: 0.25rem 0.5rem; }
     .nav-menu { width: 10rem; }
     .nav-menu a { padding: 0.5rem 1rem; font-size: 0.9rem; }
-    .popup-content { padding: 1.5rem; }
+    .popup-content { padding: 1.5rem; max-width: 85%; }
     .popup-image { max-width: 10rem; }
     .popup-content p { font-size: 1.1rem; }
     #popup-ok { padding: 0.75rem 2rem; font-size: 1rem; }
@@ -254,6 +347,9 @@ table td {
     .logo-fade { max-width: 15rem; }
     .about p { font-size: 1rem; max-width: 90%; }
     h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+    .join-slideshow { height: 15rem; }
+    .join-buttons { flex-direction: column; gap: 0.5rem; }
+    .join-buttons .cta-btn { padding: 0.5rem 1.25rem; font-size: 1rem; }
     .roster-grid { grid-template-columns: 1fr; gap: 1rem; }
     .player-card { padding: 1rem; }
     .player-card img { width: 5rem; height: 5rem; }
@@ -277,6 +373,8 @@ table td {
     .logo-fade { max-width: 18rem; }
     .about p { font-size: 1.1rem; }
     h2 { font-size: 2.25rem; }
+    .join-slideshow { height: 18rem; }
+    .join-buttons .cta-btn { padding: 0.625rem 1.5rem; }
     .roster-grid { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
     .player-card { padding: 1.125rem; }
     .contact form { max-width: 25rem; }
@@ -298,5 +396,6 @@ table td {
     .logo-fade { max-width: 20rem; }
     .about p { font-size: 1.2rem; }
     h2 { font-size: 2.5rem; }
+    .join-slideshow { height: 20rem; }
     .roster-grid { grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
 }
