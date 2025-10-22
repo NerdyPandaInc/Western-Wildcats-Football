@@ -228,9 +228,15 @@ h2 {
     text-align: center;
     padding: var(--spacing-base);
 }
-.video video {
+.youtube-video {
+    margin-bottom: 2rem;
     max-width: 100%;
-    height: auto;
+    overflow: hidden;
+}
+.youtube-video iframe {
+    max-width: 100%;
+    aspect-ratio: 16 / 9; /* Maintains 16:9 aspect ratio */
+    border: none;
     border-radius: 0.5rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
 }
@@ -345,7 +351,7 @@ table td {
     .logo-fade { max-width: 15rem; }
     .about p { font-size: 1rem; max-width: 90%; }
     .sponsors p { font-size: 1rem; max-width: 90%; }
-    .video video { max-width: 100%; }
+    .youtube-video iframe { aspect-ratio: 16 / 9; }
     h2 { font-size: 2rem; margin-bottom: 1.5rem; }
     .join-image img { max-width: 100%; height: auto; }
     .join-buttons { flex-direction: column; gap: 0.5rem; }
@@ -370,7 +376,7 @@ table td {
     .logo-fade { max-width: 18rem; }
     .about p { font-size: 1.1rem; }
     .sponsors p { font-size: 1.1rem; }
-    .video video { max-width: 100%; }
+    .youtube-video iframe { aspect-ratio: 16 / 9; }
     h2 { font-size: 2.25rem; }
     .join-image img { max-width: 100%; }
     .join-buttons .cta-btn { padding: 0.625rem 1.5rem; }
@@ -393,7 +399,7 @@ table td {
     .logo-fade { max-width: 20rem; }
     .about p { font-size: 1.2rem; }
     .sponsors p { font-size: 1.2rem; }
-    .video video { max-width: 100%; }
+    .youtube-video iframe { aspect-ratio: 16 / 9; }
     h2 { font-size: 2.5rem; }
     .join-image img { max-width: 100%; }
 }
