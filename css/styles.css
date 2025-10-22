@@ -221,6 +221,19 @@ h2 {
     max-width: 80%;
     margin: 0 auto;
 }
+.video {
+    background: var(--bg-color);
+}
+.video .container {
+    text-align: center;
+    padding: var(--spacing-base);
+}
+.video video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+}
 .sponsors {
     background: rgba(128, 0, 0, 0.1); /* Matching about section for consistency */
 }
@@ -332,6 +345,7 @@ table td {
     .logo-fade { max-width: 15rem; }
     .about p { font-size: 1rem; max-width: 90%; }
     .sponsors p { font-size: 1rem; max-width: 90%; }
+    .video video { max-width: 100%; }
     h2 { font-size: 2rem; margin-bottom: 1.5rem; }
     .join-image img { max-width: 100%; height: auto; }
     .join-buttons { flex-direction: column; gap: 0.5rem; }
@@ -356,6 +370,7 @@ table td {
     .logo-fade { max-width: 18rem; }
     .about p { font-size: 1.1rem; }
     .sponsors p { font-size: 1.1rem; }
+    .video video { max-width: 100%; }
     h2 { font-size: 2.25rem; }
     .join-image img { max-width: 100%; }
     .join-buttons .cta-btn { padding: 0.625rem 1.5rem; }
@@ -378,6 +393,7 @@ table td {
     .logo-fade { max-width: 20rem; }
     .about p { font-size: 1.2rem; }
     .sponsors p { font-size: 1.2rem; }
+    .video video { max-width: 100%; }
     h2 { font-size: 2.5rem; }
     .join-image img { max-width: 100%; }
 }
