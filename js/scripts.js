@@ -68,15 +68,12 @@ if (slideshow && slides.length > 0) {
         if (!hasTransition) {
             console.warn('CSS transition not supported, slideshow may not animate');
         }
-        // Ensure slideIndex stays within bounds
         slideIndex = (slideIndex + 1) % slides.length;
         slideshow.style.transform = `translateX(-${slideIndex * 100}%)`;
         console.log(`Home slide changed to index: ${slideIndex}, transform: translateX(-${slideIndex * 100}%)`);
-        // Adjust interval to match transition duration
         setTimeout(showSlides, 4500); // 0.5s transition + 4s display
     }
-    // Initialize with a slight delay
-    setTimeout(showSlides, 500);
+    setTimeout(showSlides, 500); // Delay to ensure DOM is ready
 } else {
     console.warn('Home slideshow elements not found or empty:', { slideshow, slidesLength: slides.length });
 }
