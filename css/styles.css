@@ -95,7 +95,7 @@ nav {
     z-index: 1000;
     transition: background 0.3s ease;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between; /* Distribute space between menu, icons, and button */
     align-items: center;
     padding: 0.5rem 1rem;
 }
@@ -147,6 +147,39 @@ nav.scrolled {
 
 .nav-menu a:hover {
     color: var(--text-light);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    color: var(--silver);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--text-light);
+}
+
+.register-btn {
+    background: var(--accent-maroon);
+    color: var(--silver);
+    padding: 0.75rem 1.5rem;
+    border: 0.125rem solid var(--silver);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.register-btn:hover {
+    background: var(--silver);
+    color: var(--accent-maroon);
 }
 
 .header {
@@ -457,6 +490,8 @@ table td {
     .contact form { max-width: 20rem; }
     .contact input, .contact textarea { font-size: 0.9rem; }
     .contact button { padding: 0.5rem 1rem; font-size: 0.9rem; }
+    .social-icons a { font-size: 1.2rem; }
+    .register-btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
     .store-slideshow { height: 15rem; }
 }
 
@@ -479,6 +514,8 @@ table td {
     .join-image img { max-width: 100%; }
     .join-buttons .cta-btn { padding: 0.625rem 1.5rem; }
     .contact form { max-width: 25rem; }
+    .social-icons a { font-size: 1.4rem; }
+    .register-btn { padding: 0.625rem 1.25rem; font-size: 1rem; }
     .store-slideshow { height: 18rem; }
 }
 
@@ -500,5 +537,7 @@ table td {
     .youtube-video iframe { aspect-ratio: 16 / 9; }
     h2 { font-size: 2.5rem; }
     .join-image img { max-width: 100%; }
+    .social-icons a { font-size: 1.5rem; }
+    .register-btn { padding: 0.75rem 1.5rem; font-size: 1.2rem; }
     .store-slideshow { height: 20rem; }
 }
