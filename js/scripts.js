@@ -1,5 +1,5 @@
 // Recommend adding defer attribute to script tag in HTML: <script src="js/scripts.js" defer></script>
-console.log('JS loaded at', new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })); // Confirm script is running with timestamp
+console.log('JS loaded at', new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }));
 
 // Pop-up control with enhanced error handling
 const popupOverlay = document.getElementById('popup-overlay');
@@ -13,10 +13,10 @@ if (popupOk && popupOverlay && mainContent && logoFade && body) {
         console.log('Button clicked at', new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }));
         popupOverlay.style.display = 'none';
         mainContent.style.display = 'block';
-        body.style.overflow = 'auto'; // Enable scrolling
+        body.style.overflow = 'auto';
         setTimeout(() => {
             if (logoFade) logoFade.classList.add('visible');
-        }, 100); // Slight delay for fade-in
+        }, 100);
     });
 } else {
     console.error('Pop-up elements missing:', {
@@ -57,38 +57,30 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Home Slideshow control
+// Home Slideshow control (fade-based)
 let slideIndex = 0;
-const slideshow = document.querySelector('.slideshow');
 const slides = document.querySelectorAll('.slide');
 
-if (slideshow && slides.length > 0) {
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+    });
+    console.log(`Slide ${index + 1} of ${slides.length} is now active`);
+}
+
+function nextSlide() {
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlide(slideIndex);
+}
+
+if (slides.length > 0) {
     console.log('Slideshow initialized with', slides.length, 'slides');
-    const hasTransition = window.getComputedStyle(slideshow).transition !== 'none';
-    if (!hasTransition) {
-        console.warn('CSS transition not supported, slideshow may not animate');
-    }
-    function showSlides() {
-        try {
-            if (!slideshow || slides.length === 0) {
-                console.error('Slideshow or slides not found during animation');
-                return;
-            }
-            slideIndex = (slideIndex + 1) % slides.length;
-            slideshow.style.transform = `translateX(-${slideIndex * 100}%)`;
-            console.log(`Home slide changed to index: ${slideIndex}, transform: translateX(-${slideIndex * 100}%)`);
-            setTimeout(showSlides, 4500); // 0.5s transition + 4s display
-        } catch (error) {
-            console.error('Error in showSlides:', error);
-        }
-    }
-    // Start slideshow after DOM is fully loaded
     window.addEventListener('load', () => {
-        console.log('DOM fully loaded, starting slideshow');
-        setTimeout(showSlides, 500); // Initial delay to ensure readiness
+        showSlide(slideIndex); // Show first slide
+        setInterval(nextSlide, 4500); // Rotate every 4.5 seconds
     });
 } else {
-    console.warn('Home slideshow elements not found or empty:', { slideshow, slidesLength: slides.length });
+    console.warn('No slides found for slideshow');
 }
 
 // Form submission (placeholder)
