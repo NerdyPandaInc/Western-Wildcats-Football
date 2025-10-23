@@ -218,7 +218,7 @@ nav.scrolled {
 .slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Auto-fill: fills container without spaces/black bars, cropping if needed */
+    object-fit: cover; /* Auto-fit: fills container without spaces/black bars, cropping if needed */
     display: block;
 }
 
@@ -304,7 +304,7 @@ h2 {
 .store-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Auto-fill: fills container without spaces/black bars, cropping if needed */
+    object-fit: cover; /* Auto-fit: fills container without spaces/black bars, cropping if needed */
     display: block;
 }
 .store-link {
