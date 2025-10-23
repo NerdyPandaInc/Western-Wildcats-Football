@@ -63,17 +63,30 @@ const slideshow = document.querySelector('.slideshow');
 const slides = document.querySelectorAll('.slide');
 
 if (slideshow && slides.length > 0) {
+    console.log('Slideshow initialized with', slides.length, 'slides');
     const hasTransition = window.getComputedStyle(slideshow).transition !== 'none';
-    function showSlides() {
-        if (!hasTransition) {
-            console.warn('CSS transition not supported, slideshow may not animate');
-        }
-        slideIndex = (slideIndex + 1) % slides.length;
-        slideshow.style.transform = `translateX(-${slideIndex * 100}%)`;
-        console.log(`Home slide changed to index: ${slideIndex}, transform: translateX(-${slideIndex * 100}%)`);
-        setTimeout(showSlides, 4500); // 0.5s transition + 4s display
+    if (!hasTransition) {
+        console.warn('CSS transition not supported, slideshow may not animate');
     }
-    setTimeout(showSlides, 500); // Delay to ensure DOM is ready
+    function showSlides() {
+        try {
+            if (!slideshow || slides.length === 0) {
+                console.error('Slideshow or slides not found during animation');
+                return;
+            }
+            slideIndex = (slideIndex + 1) % slides.length;
+            slideshow.style.transform = `translateX(-${slideIndex * 100}%)`;
+            console.log(`Home slide changed to index: ${slideIndex}, transform: translateX(-${slideIndex * 100}%)`);
+            setTimeout(showSlides, 4500); // 0.5s transition + 4s display
+        } catch (error) {
+            console.error('Error in showSlides:', error);
+        }
+    }
+    // Start slideshow after DOM is fully loaded
+    window.addEventListener('load', () => {
+        console.log('DOM fully loaded, starting slideshow');
+        setTimeout(showSlides, 500); // Initial delay to ensure readiness
+    });
 } else {
     console.warn('Home slideshow elements not found or empty:', { slideshow, slidesLength: slides.length });
 }
