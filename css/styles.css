@@ -56,6 +56,8 @@ a {
     max-width: 15rem;
     height: auto;
     margin-bottom: calc(var(--spacing-base) * 1.5);
+    display: block;
+    margin: 0 auto; /* Center the logo horizontally */
 }
 .popup-content p {
     font-size: 1.4rem;
@@ -157,6 +159,7 @@ nav.scrolled {
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
     margin: 0 auto; /* Center the logo horizontally */
+    display: block; /* Ensure image is visible */
 }
 .logo-fade.visible {
     opacity: 1;
@@ -190,6 +193,7 @@ nav.scrolled {
     width: 100%;
     height: 100%;
     object-fit: contain; /* Changed to 'contain' for full panoramic view without cropping */
+    display: block; /* Ensure image is visible */
 }
 
 section {
@@ -260,7 +264,7 @@ table td {
     text-align: center;
 }
 .roster {
-    background: transparent; /* Set to transparent to inherit body gradient, fixing yellow issue */
+    background: linear-gradient(to bottom, var(--accent-maroon), var(--silver)); /* Ensure gradient inheritance */
     color: var(--text-dark);
 }
 .roster .container {
