@@ -56,6 +56,7 @@ a {
     max-width: 15rem;
     height: auto;
     margin-bottom: calc(var(--spacing-base) * 1.5);
+    display: block; /* Ensure image is visible */
 }
 .popup-content p {
     font-size: 1.4rem;
@@ -157,6 +158,7 @@ nav.scrolled {
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
     margin: 0 auto; /* Center the logo horizontally */
+    display: block; /* Ensure image is visible */
 }
 .logo-fade.visible {
     opacity: 1;
@@ -189,7 +191,8 @@ nav.scrolled {
 .slide img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Changed to 'contain' for full panoramic view without cropping */
+    object-fit: cover;
+    display: block; /* Ensure image is visible */
 }
 
 section {
@@ -260,7 +263,7 @@ table td {
     text-align: center;
 }
 .roster {
-    background: rgba(192, 192, 0.1);
+    background: rgba(192, 192, 192, 0.1);
     color: var(--text-dark);
 }
 .roster .container {
@@ -282,6 +285,7 @@ table td {
     max-width: 100%;
     height: auto;
     object-fit: cover;
+    display: block; /* Ensure image is visible */
 }
 .join-buttons {
     display: flex;
